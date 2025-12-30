@@ -27,8 +27,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'gotoiq', // Usually your GitHub org/user name.
-  projectName: 'gotoiq.github.io', // Usually your repo name.
+  organizationName: 'iqunix-design', // Usually your GitHub org/user name.
+  projectName: 'iqunix-design.github.io', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
