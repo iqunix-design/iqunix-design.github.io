@@ -83,6 +83,7 @@ const config = {
         logo: {
           alt: 'IQUNIX Logo',
           src: 'img/logo.svg',
+          // srcDark: 'img/logo-dark.svg', // 指定深色模式 logo
         },
         items: [
           {
@@ -101,48 +102,48 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        // links: [
+        //   // {
+        //   //   title: 'Docs',
+        //   //   items: [
+        //   //     {
+        //   //       label: 'Tutorial',
+        //   //       to: '/',
+        //   //     },
+        //   //   ],
+        //   // },
+        //   // {
+        //   //   title: 'Community',
+        //   //   items: [
+        //   //     {
+        //   //       label: 'Stack Overflow',
+        //   //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+        //   //     },
+        //   //     {
+        //   //       label: 'Discord',
+        //   //       href: 'https://discordapp.com/invite/docusaurus',
+        //   //     },
+        //   //     {
+        //   //       label: 'X',
+        //   //       href: 'https://x.com/docusaurus',
+        //   //     },
+        //   //   ],
+        //   // },
+        //   // {
+        //   //   title: 'More',
+        //   //   items: [
+        //   //     {
+        //   //       label: 'Blog',
+        //   //       to: '/blog',
+        //   //     },
+        //   //     {
+        //   //       label: 'GitHub',
+        //   //       href: 'https://github.com/facebook/docusaurus',
+        //   //     },
+        //   //   ],
+        //   // },
+        // ],
+        copyright: `Copyright © ${new Date().getFullYear()} IQUNIX <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备15035976号-1</a>`,
       },
       prism: {
         theme: prismThemes.github,
