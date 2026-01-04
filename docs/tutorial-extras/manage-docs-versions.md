@@ -18,6 +18,8 @@ The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json
 
 Your docs now have 2 versions:
 
+/
+
 <video controls>
   <source src="https://www.w3school.com.cn/i/movie.mp4" />
 </video>
