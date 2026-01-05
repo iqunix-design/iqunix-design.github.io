@@ -4,17 +4,16 @@ on:
   push:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   build:
-    name: Build Docusaurus
+    name: Build Docusaurus + Deploy EdgeOne
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -22,24 +21,38 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
       - name: Build website
         run: yarn build
 
-      - name: Upload Build Artifact
+      # 👇 可选：确认 build 目录存在（排错很有用）
+      - name: Verify build folder
+        run: |
+          ls -la
+          ls -la build
+
+      # 👇 EdgeOne 部署：就在 build job 里做
+      - name: Deploy to EdgeOne Pages
+        run: |
+          npm install -g edgeone
+          edgeone pages deploy ./build \
+            -n iqunixsupport \
+            -t ${{ secrets.EDGEONE_TOKEN }}
+
+      # 👇 仍然上传给 GitHub Pages 用
+      - name: Upload Build Artifact (for GitHub Pages)
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
 
   deploy:
-    name: Deploy to GitHub Pages and EdgeOne
+    name: Deploy to GitHub Pages
     needs: build
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -49,11 +62,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Install EdgeOne CLI
-        run: |
-          npm install -g edgeone
-
-      - name: Deploy to EdgeOne Pages
-        run: |
-          edgeone pages deploy ./build --token ${{ secrets.EDGEONE_TOKEN }} -n iqunixsupport
