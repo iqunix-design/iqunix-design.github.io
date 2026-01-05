@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages and EdgeOne
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
           path: build
 
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to GitHub Pages and EdgeOne
     needs: build
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
@@ -49,3 +49,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Install EdgeOne CLI
+        run: |
+          npm install -g edgeone
+
+      - name: Deploy to EdgeOne Pages
+        run: |
+          edgeone pages deploy ./dist --token ${{ secrets.EDGEONE_TOKEN }} -n iqunixsupport
