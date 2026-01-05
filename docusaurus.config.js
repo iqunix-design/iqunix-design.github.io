@@ -82,7 +82,7 @@ const config = {
         title: 'IQUNIX SUPPORT',
         logo: {
           alt: 'IQUNIX Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo-light.svg',
           srcDark: 'img/logo-dark.svg', // 指定深色模式 logo
         },
         items: [
