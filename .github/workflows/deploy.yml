@@ -56,4 +56,4 @@ jobs:
 
       - name: Deploy to EdgeOne Pages
         run: |
-          edgeone pages deploy ./dist --token ${{ secrets.EDGEONE_TOKEN }} -n iqunixsupport
+          edgeone pages deploy ./build --token ${{ secrets.EDGEONE_TOKEN }} -n iqunixsupport
