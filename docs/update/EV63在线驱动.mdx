@@ -1,1 +1,10 @@
-# EV63在线驱动
+@Controller
+@RequestMapping("/old-path")
+public class MyController {
+    @RequestMapping(value = "/redirect", method = RequestMethod.GET)
+    public String redirectToOtherLink() {
+        return "redirect:http://www.ev.iqunix.com"; // 
+}
+
+
+#
